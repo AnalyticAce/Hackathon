@@ -53,15 +53,15 @@ if st.session_state.page == 'home':
             with st.status("***:blue[Creating ChatBot 🤖...]***"):
                 "***:red[Searching for Model 🕵️‍♂️...]***"
                 
-                #sleep(2)
+                #sleep(3)
                 
                 "***:blue[Found Model 🔗.]***"
                 
-                #sleep(1)
+                #sleep(2)
                 
                 "***:red[Initializing Bot 🔃...]***"
                 
-                #sleep(1)
+                #sleep(2)
 
         if not MODEL_LINK:
             st.info("Please fill out the Trained Model Link to proceed. If you don't have one, you can obtain it here.")
