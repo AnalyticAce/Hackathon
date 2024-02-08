@@ -6,6 +6,7 @@ from youtube_transcript_api import (
     CookiePathInvalid, CookiesInvalid, FailedToCreateConsentCookie, NoTranscriptFound
 )
 
+@st.cache_data
 def extract_video_id_from_url(url):
     try:
         return extract.video_id(url)
@@ -18,7 +19,7 @@ def extract_video_id_from_url(url):
         st.info("Here are some valid formats: " + " ,".join(example_urls))
         st.stop()
 
-
+@st.cache_data
 def get_transcript_text(video_id):
     try:
         transcript = YouTubeTranscriptApi.get_transcript(video_id)

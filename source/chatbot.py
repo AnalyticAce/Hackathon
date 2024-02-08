@@ -4,14 +4,15 @@ from time import *
 import time
 import numpy as np
 
-#https://docs.streamlit.io/library/api-reference/write-magic/st.write_stream
-
 st.set_page_config(
     page_title="MySupport",
     page_icon="🧠",
     layout="centered",
     initial_sidebar_state="collapsed"
 )
+
+with open("style/style.css") as f:
+    st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 ANSWER_ = """
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
