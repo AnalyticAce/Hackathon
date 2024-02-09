@@ -24,7 +24,7 @@ def load_model(url):
     pass
 
 @st.cache_resource
-def run_model(url):
+def run_model(model):
     pass
 
 @st.cache
