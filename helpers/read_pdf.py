@@ -4,20 +4,20 @@ from PIL import Image
 import PyPDF2
 import requests
 
-@st.cache
+@st.cache_data(show_spinner=False)
 def load_lottie(url): 
     req = requests.get(url)
     if req.status_code != 200:
         None
     return req.json()
 
-@st.cache
+@st.cache_data(show_spinner=False)
 def get_file_data(file):
     with open(file, 'rb') as f:
         data = f.read()
     return data
 
-@st.cache
+@st.cache_data(show_spinner=False)
 def pdf_to_text(file):
     with open(file, "rb") as pdf:
         reader = PyPDF2.PdfFileReader(pdf, strict=False)
