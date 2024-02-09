@@ -3,6 +3,7 @@ import pandas as pd
 from time import *
 import time
 import numpy as np
+from helpers.read_pdf import *
 
 def add_youtube_link():
     if 'youtube_link' not in st.session_state:
@@ -25,7 +26,7 @@ def add_youtube_link():
 
     return st.session_state['youtube_link']
 
-
+    
 def upload_pdf_files():
     if 'uploaded_files' not in st.session_state:
         st.session_state['uploaded_files'] = []
@@ -44,3 +45,17 @@ def upload_pdf_files():
                 st.success(f"File deleted successfully!")
 
     return st.session_state['uploaded_files']
+
+def combine_text(file):
+    
+    combine = ""
+    
+    for content in file:
+        text = pdf_to_text(content)
+        combine += ' '.join(text) + "\n Next PDF \n"
+    st.write(combine)
+
+    
+if __name__ == '__main__':
+    file = upload_pdf_files()
+    combine_text(file)
