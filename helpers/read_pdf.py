@@ -22,10 +22,10 @@ def pdf_to_text(file):
     with open(file, "rb") as pdf:
         reader = PyPDF2.PdfFileReader(pdf, strict=False)
         
-        pdf_text = []
+        text = []
         
         for page in reader.pages:
             content = page.extract_text()
-            pdf_text.append(content)
+            text.append(content)
             
-        return pdf_text                                                                                                                                                  
+        return text                                                                                                                                                  
