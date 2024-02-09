@@ -24,3 +24,23 @@ def add_youtube_link():
                 st.session_state['youtube_link'].remove(item)
 
     return st.session_state['youtube_link']
+
+
+def upload_pdf_files():
+    if 'uploaded_files' not in st.session_state:
+        st.session_state['uploaded_files'] = []
+
+    with st.expander("PDF Upload"):
+        uploaded_file = st.file_uploader("Upload a PDF file", type=['pdf'])
+        if uploaded_file is not None:
+            st.session_state['uploaded_files'] += [uploaded_file]
+            st.success("File uploaded successfully!")
+
+        for i, item in enumerate(st.session_state['uploaded_files']):
+            col1, col2 = st.columns([4, 1])
+            col1.write(item.name)
+            if col2.button("Delete", key=f'delete_{i}'):
+                st.session_state['uploaded_files'].remove(item)
+                st.success(f"File deleted successfully!")
+
+    return st.session_state['uploaded_files']
